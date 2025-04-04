@@ -7,11 +7,9 @@ void setup(){
     RCC -> APB2ENR|=RCC_APB2ENR_IOPAEN;
     RCC -> APB2ENR|=RCC_APB2ENR_IOPBEN;
 
-    GPIOA -> CRL = 0x44444444;
-    GPIOA -> CRH = 0x44444444;
+    GPIOA -> CRL = 0x11111111; //output MHz push-pull
 
-    GPIOB -> CRL = 0x11111111;
-    GPIOB -> CRH = 0x11111111;
+    GPIOB -> CRL |= GPIO_CRL_CNF0_0 | ~GPIO_CRL_MODE0; //Floating input
 }
 void loop(){
     uint16_t est =GPIOB -> IDR&=(1<<0);

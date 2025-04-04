@@ -6,12 +6,12 @@
 void setup(){
     RCC -> APB2ENR|=RCC_APB2ENR_IOPAEN;
     RCC -> APB2ENR|=RCC_APB2ENR_IOPBEN;
-
-    GPIOA -> CRL = 0x44444444;
-    GPIOA -> CRH = 0x44444444;
-
-    GPIOB -> CRL = 0x11111111;
-    GPIOB -> CRH = 0x11111111;
+    
+    GPIOA -> CRL = 0x11111111; //output MHz push-pull
+    GPIOA -> CRH = 0x11111111;
+    
+    GPIOB -> CRL = 0x44444444; //Floating input
+    GPIOB -> CRH = 0x44444444;
 }
 void loop(){
     uint16_t est =GPIOB -> IDR;

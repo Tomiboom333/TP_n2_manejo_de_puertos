@@ -12,7 +12,7 @@ void setup(){
     GPIOB -> CRH = 0x44444444;
 }
 void loop(){
-    uint16_t est =GPIOA -> IDR;
-    GPIOB -> BSRR = est;
+    uint16_t est =GPIOB -> IDR;
+    GPIOA -> BSRR = est;
 }
 
